@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mujeeb A. Akindoyin — Journalist &amp; Researcher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B1F33;
+    --navy-soft:#122A44;
+    --white:#F8F7F3;
+    --charcoal:#20252B;
+    --grey:#6B7280;
+    --gold:#C9A227;
+    --line:#E4E1D6;
+    --line-dark:#22344A;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--white);
+    color:var(--charcoal);
+    font-family:'Inter',sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Playfair Display',serif; color:var(--navy); margin:0;}
+  a{color:inherit; text-decoration:none;}
+  ::selection{background:var(--gold); color:var(--navy);}
+  :focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+  img{max-width:100%; display:block;}
+
+  .wrap{max-width:1120px; margin:0 auto; padding:0 32px;}
+  section{padding:88px 0;}
+  .section-tag{
+    font-size:0.78rem;
+    color:var(--gold);
+    font-weight:600;
+    letter-spacing:0.08em;
+    margin-bottom:10px;
+    display:block;
+  }
+  .section-title{font-size:2.1rem; margin-bottom:36px;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(248,247,243,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px;
+  }
+  .brand{font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:600; color:var(--navy);}
+  .brand span{color:var(--gold);}
+  nav{display:flex; gap:30px;}
+  nav a{font-size:0.92rem; font-weight:500; color:var(--charcoal); position:relative; padding-bottom:4px;}
+  nav a:hover{color:var(--navy);}
+  nav a::after{
+    content:''; position:absolute; left:0; bottom:0; width:0; height:1.5px;
+    background:var(--gold); transition:width .25s ease;
+  }
+  nav a:hover::after{width:100%;}
+  .menu-toggle{display:none; background:none; border:none; cursor:pointer; padding:6px;}
+  .menu-toggle span{display:block; width:22px; height:2px; background:var(--navy); margin:5px 0;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:var(--navy);
+    color:var(--white);
+    padding:100px 0 90px;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero-eyebrow{color:var(--gold); font-size:0.85rem; font-weight:600; letter-spacing:0.08em; margin-bottom:16px; display:block;}
+  .hero h1{
+    color:var(--white);
+    font-size:3.1rem;
+    line-height:1.12;
+    margin-bottom:16px;
+  }
+  .hero .role-line{
+    color:#D9CFAE;
+    font-size:1.15rem;
+    margin-bottom:22px;
+  }
+  .hero p.lede{
+    color:#C7CDD6;
+    max-width:52ch;
+    margin-bottom:32px;
+    font-size:1.02rem;
+  }
+  .btn-row{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block;
+    padding:13px 26px;
+    font-size:0.9rem;
+    font-weight:600;
+    border-radius:3px;
+    transition:transform .18s ease, background .18s ease;
+  }
+  .btn-primary{background:var(--gold); color:var(--navy);}
+  .btn-primary:hover{transform:translateY(-2px); background:#D9B441;}
+  .btn-outline{border:1px solid rgba(248,247,243,0.35); color:var(--white);}
+  .btn-outline:hover{border-color:var(--gold); color:var(--gold); transform:translateY(-2px);}
+
+  .portrait-frame{
+    aspect-ratio:4/5;
+    border:1px solid rgba(201,162,39,0.4);
+    background:linear-gradient(160deg,#16324F,#0B1F33);
+    display:flex; align-items:center; justify-content:center;
+    color:#5A6D82;
+    font-size:0.85rem;
+    text-align:center;
+    padding:20px;
+    border-radius:2px;
+  }
+
+  /* ---------- Featured stories ---------- */
+  .stories-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr;
+    gap:32px;
+  }
+  .story-card{
+    border:1px solid var(--line);
+    background:#fff;
+    border-radius:2px;
+    overflow:hidden;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .story-card:hover{transform:translateY(-4px); box-shadow:0 10px 24px rgba(11,31,51,0.08);}
+  .story-photo{
+    aspect-ratio:16/9;
+    background:linear-gradient(135deg,#DED7C1,#EDE9DC);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--grey); font-size:0.8rem;
+  }
+  .story-main .story-photo{aspect-ratio:16/10;}
+  .story-body{padding:22px 24px 26px;}
+  .story-cat{font-size:0.75rem; color:var(--gold); font-weight:700; letter-spacing:0.05em;}
+  .story-body h3{font-size:1.3rem; margin:10px 0 8px; line-height:1.3;}
+  .story-main .story-body h3{font-size:1.55rem;}
+  .story-body p{color:var(--grey); font-size:0.92rem; margin:0 0 14px;}
+  .read-link{font-size:0.85rem; font-weight:600; color:var(--navy); border-bottom:1px solid var(--gold); padding-bottom:2px;}
+  .small-stories{display:flex; flex-direction:column; gap:24px;}
+  .small-story{display:flex; gap:16px; border-bottom:1px solid var(--line); padding-bottom:24px;}
+  .small-story:last-child{border-bottom:none; padding-bottom:0;}
+  .small-thumb{
+    width:96px; min-width:96px; aspect-ratio:1/1;
+    background:linear-gradient(135deg,#DED7C1,#EDE9DC);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--grey); font-size:0.68rem; text-align:center; border-radius:2px;
+  }
+  .small-story h4{font-size:1rem; margin:6px 0 4px; line-height:1.35; color:var(--navy); font-family:'Playfair Display',serif; font-weight:600;}
+  .small-story p{margin:0; color:var(--grey); font-size:0.82rem;}
+
+  /* ---------- About ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    align-items:start;
+  }
+  .about-body p{color:var(--charcoal); max-width:56ch; margin:0 0 16px;}
+  .interest-list{
+    list-style:none; padding:0; margin:0;
+    display:grid; grid-template-columns:1fr 1fr; gap:10px 20px;
+  }
+  .interest-list li{
+    font-size:0.92rem; color:var(--charcoal);
+    padding-left:16px; position:relative;
+  }
+  .interest-list li::before{
+    content:''; position:absolute; left:0; top:9px;
+    width:6px; height:1px; background:var(--gold);
+  }
+  .interest-title{font-size:1.05rem; font-weight:600; color:var(--navy); margin-bottom:14px; font-family:'Playfair Display',serif;}
+
+  /* ---------- Timeline ---------- */
+  .timeline{border-left:1px solid var(--line); padding-left:32px; margin-left:6px;}
+  .tl-item{position:relative; padding-bottom:38px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:''; position:absolute; left:-37px; top:4px;
+    width:9px; height:9px; border-radius:50%; background:var(--gold);
+  }
+  .tl-year{font-size:0.8rem; color:var(--gold); font-weight:700; letter-spacing:0.04em;}
+  .tl-item h3{font-size:1.2rem; margin:6px 0 2px;}
+  .tl-role{color:var(--grey); font-size:0.88rem; margin-bottom:8px;}
+  .tl-item p.desc{color:var(--charcoal); font-size:0.94rem; max-width:60ch; margin:0;}
+
+  /* ---------- Journalism portfolio ---------- */
+  .filter-row{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:36px;}
+  .filter-pill{
+    font-size:0.82rem; padding:7px 16px; border:1px solid var(--line);
+    border-radius:20px; color:var(--grey);
+  }
+  .filter-pill.active{background:var(--navy); color:var(--white); border-color:var(--navy);}
+  .portfolio-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+  .port-card{border:1px solid var(--line); background:#fff; border-radius:2px; transition:transform .18s ease, box-shadow .18s ease;}
+  .port-card:hover{transform:translateY(-4px); box-shadow:0 10px 24px rgba(11,31,51,0.08);}
+  .port-photo{aspect-ratio:16/10; background:linear-gradient(135deg,#DED7C1,#EDE9DC); display:flex; align-items:center; justify-content:center; color:var(--grey); font-size:0.75rem;}
+  .port-body{padding:18px 20px 22px;}
+  .port-meta{font-size:0.75rem; color:var(--grey); margin-bottom:8px;}
+  .port-meta strong{color:var(--gold);}
+  .port-body h3{font-size:1.1rem; line-height:1.35; margin-bottom:8px;}
+  .port-body p{color:var(--grey); font-size:0.86rem; margin:0 0 12px;}
+
+  /* ---------- Research ---------- */
+  .research-tags{display:flex; flex-wrap:wrap; gap:10px;}
+  .research-tag{
+    font-size:0.85rem; padding:9px 18px; border:1px solid var(--line);
+    border-radius:2px; color:var(--charcoal); background:#fff;
+  }
+
+  /* ---------- Achievements ---------- */
+  .stats-band{background:var(--navy); color:var(--white); padding:64px 0;}
+  .stats-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; text-align:center;}
+  .stat h3{color:var(--gold); font-size:2.6rem; margin-bottom:6px;}
+  .stat p{color:#C7CDD6; font-size:0.88rem; margin:0;}
+
+  /* ---------- Orgs ---------- */
+  .orgs-row{
+    display:flex; justify-content:center; flex-wrap:wrap; gap:14px 40px;
+    padding-top:8px;
+  }
+  .org-name{font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--navy); opacity:0.75;}
+
+  /* ---------- Contact ---------- */
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px;}
+  .contact-info p{color:var(--charcoal); max-width:48ch;}
+  .contact-list{list-style:none; padding:0; margin:24px 0 0;}
+  .contact-list li{padding:12px 0; border-bottom:1px solid var(--line); font-size:0.94rem;}
+  .contact-list li span{color:var(--grey); display:inline-block; width:110px;}
+  form{display:flex; flex-direction:column; gap:16px;}
+  input,textarea{
+    width:100%; padding:13px 14px; border:1px solid var(--line);
+    background:#fff; font-family:'Inter',sans-serif; font-size:0.92rem;
+    border-radius:2px; color:var(--charcoal);
+  }
+  textarea{resize:vertical; min-height:120px;}
+  input:focus,textarea:focus{border-color:var(--gold);}
+  button.submit{
+    align-self:flex-start; background:var(--navy); color:var(--white);
+    border:none; padding:13px 28px; font-size:0.9rem; font-weight:600;
+    border-radius:3px; cursor:pointer; transition:background .18s ease;
+  }
+  button.submit:hover{background:var(--navy-soft);}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--navy); color:#B9C2CE; padding:48px 0 30px;}
+  .footer-top{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    flex-wrap:wrap; gap:24px; padding-bottom:28px; border-bottom:1px solid var(--line-dark);
+    margin-bottom:22px;
+  }
+  .footer-brand h3{color:var(--white); font-size:1.4rem;}
+  .footer-brand p{color:#8C97A6; margin-top:6px; font-size:0.88rem;}
+  .footer-links{display:flex; gap:24px; flex-wrap:wrap;}
+  .footer-links a{font-size:0.88rem;}
+  .footer-links a:hover{color:var(--gold);}
+  .footer-social{display:flex; gap:18px;}
+  .footer-social a{font-size:0.85rem; color:#B9C2CE;}
+  .footer-social a:hover{color:var(--gold);}
+  .footer-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; font-size:0.8rem; color:#7C8898;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:860px){
+    nav{display:none;}
+    .menu-toggle{display:block;}
+    .hero .wrap{grid-template-columns:1fr; gap:36px;}
+    .hero h1{font-size:2.3rem;}
+    .portrait-frame{aspect-ratio:16/10;}
+    .stories-grid{grid-template-columns:1fr;}
+    .about-grid,.contact-grid{grid-template-columns:1fr;}
+    .interest-list{grid-template-columns:1fr;}
+    .portfolio-grid{grid-template-columns:1fr 1fr;}
+    .stats-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:560px){
+    section{padding:60px 0;}
+    .wrap{padding:0 22px;}
+    .portfolio-grid{grid-template-columns:1fr;}
+    .stats-grid{grid-template-columns:1fr 1fr; gap:28px 16px;}
+    .small-story{flex-direction:column;}
+    .small-thumb{width:100%; aspect-ratio:16/9;}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} .story-card,.port-card,.btn{transition:none;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">MUJEEB A. <span>AKINDOYIN</span></div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#journalism">Journalism</a>
+      <a href="#research">Research</a>
+      <a href="#media">Media</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero" style="padding-top:100px;">
+  <div class="wrap">
+    <div>
+      <span class="hero-eyebrow">JOURNALISM · RESEARCH · COMMUNICATION</span>
+      <h1>Telling stories.<br>Asking questions.<br>Documenting society.</h1>
+      <p class="role-line">Journalist &amp; Reporter at Platform Times · Mass Communication Student, University of Ilorin</p>
+      <p class="lede">I write on politics, society and public affairs, and study media and communication at the University of Ilorin — where journalism, research and storytelling meet.</p>
+      <div class="btn-row">
+        <a href="#journalism" class="btn btn-primary">Read My Stories</a>
+        <a href="#about" class="btn btn-outline">About Me</a>
+      </div>
+    </div>
+    <div class="portrait-frame">Professional portrait —<br>add your photograph here</div>
+  </div>
+</section>
+
+<section id="stories">
+  <div class="wrap">
+    <span class="section-tag">FEATURED</span>
+    <h2 class="section-title">Featured Stories</h2>
+    <div class="stories-grid">
+      <div class="story-card story-main">
+        <div class="story-photo">Add photo — Ogun 2027 coverage</div>
+        <div class="story-body">
+          <span class="story-cat">POLITICS · OGUN STATE</span>
+          <h3>Ogun 2027 Conversation Begins Engagement With Governorship, National Assembly Candidates</h3>
+          <p>Platform Times · September 2026</p>
+          <a href="#" class="read-link">Read Story →</a>
+        </div>
+      </div>
+      <div class="small-stories">
+        <div class="small-story">
+          <div class="small-thumb">Photo</div>
+          <div>
+            <span class="story-cat">BUSINESS · SOCIETY · OGUN</span>
+            <h4>"Developers Are the Main Problem," Iyaloja Ogun Clarifies Issues Surrounding Traders' Exploitation</h4>
+            <p>Platform Times</p>
+          </div>
+        </div>
+        <div class="small-story">
+          <div class="small-thumb">Photo</div>
+          <div>
+            <span class="story-cat">CAMPUS</span>
+            <h4>Correspondent dispatch — Unilorin Watch</h4>
+            <p>Unilorin Watch</p>
+          </div>
+        </div>
+        <div class="small-story">
+          <div class="small-thumb">Photo</div>
+          <div>
+            <span class="story-cat">MEDIA</span>
+            <h4>Add your next featured story here</h4>
+            <p>Publication · Date</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <span class="section-tag">ABOUT</span>
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>Mujeeb A. Akindoyin is a journalist, Mass Communication student at the University of Ilorin, and Reporter &amp; Researcher at Platform Times. He is also a team member at OC Legend Media, Brand Ambassador and Sales &amp; Marketing Specialist at Iblan Eyewear, and Lecturer at Deen Reach International Institute.</p>
+        <p>His work moves between reporting, research, and communication — covering politics and public affairs while studying the media systems that shape them.</p>
+      </div>
+      <div>
+        <div class="interest-title">Areas of Interest</div>
+        <ul class="interest-list">
+          <li>Journalism</li>
+          <li>Investigative Reporting</li>
+          <li>Campus Journalism</li>
+          <li>Media Research</li>
+          <li>Public Affairs</li>
+          <li>Digital Journalism</li>
+          <li>Feature Writing</li>
+          <li>Solutions Journalism</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <span class="section-tag">EDUCATION &amp; EXPERIENCE</span>
+    <h2 class="section-title">Timeline</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-year">2026</span>
+        <h3>University of Ilorin</h3>
+        <div class="tl-role">Mass Communication Student</div>
+        <p class="desc">Faculty of Communication and Information Sciences.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-year">Ongoing</span>
+        <h3>Platform Times</h3>
+        <div class="tl-role">Journalist &amp; Researcher</div>
+        <p class="desc">Reporting on politics, society, and public affairs.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-year">Ongoing</span>
+        <h3>Unilorin Watch</h3>
+        <div class="tl-role">Correspondent</div>
+        <p class="desc">Campus reporting and coverage.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-year">Ongoing</span>
+        <h3>OC Legend Media</h3>
+        <div class="tl-role">Media Team</div>
+        <p class="desc">Media production and team collaboration.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-year">Ongoing</span>
+        <h3>Iblan Eyewear</h3>
+        <div class="tl-role">Brand Ambassador · Sales &amp; Marketing Specialist</div>
+        <p class="desc">Brand representation and marketing.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-year">Ongoing</span>
+        <h3>Deen Reach International Institute</h3>
+        <div class="tl-role">Lecturer</div>
+        <p class="desc">Teaching and instruction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="journalism" style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <span class="section-tag">PORTFOLIO</span>
+    <h2 class="section-title">Journalism</h2>
+    <div class="filter-row">
+      <span class="filter-pill active">All</span>
+      <span class="filter-pill">News</span>
+      <span class="filter-pill">Features</span>
+      <span class="filter-pill">Interviews</span>
+      <span class="filter-pill">Investigations</span>
+      <span class="filter-pill">Politics</span>
+      <span class="filter-pill">Campus</span>
+    </div>
+    <div class="portfolio-grid">
+      <div class="port-card">
+        <div class="port-photo">Add photo</div>
+        <div class="port-body">
+          <div class="port-meta"><strong>POLITICS</strong> · Sept 2026</div>
+          <h3>Ogun 2027 Conversation Begins Engagement With Governorship, National Assembly Candidates</h3>
+          <p>Platform Times</p>
+          <a href="#" class="read-link">Read article</a>
+        </div>
+      </div>
+      <div class="port-card">
+        <div class="port-photo">Add photo</div>
+        <div class="port-body">
+          <div class="port-meta"><strong>BUSINESS · SOCIETY</strong> · Ogun</div>
+          <h3>"Developers Are the Main Problem," Iyaloja Ogun Clarifies Issues Surrounding Traders' Exploitation</h3>
+          <p>Platform Times</p>
+          <a href="#" class="read-link">Read article</a>
+        </div>
+      </div>
+      <div class="port-card">
+        <div class="port-photo">Add photo</div>
+        <div class="port-body">
+          <div class="port-meta"><strong>CAMPUS</strong></div>
+          <h3>Upload your next Unilorin Watch story here</h3>
+          <p>Unilorin Watch</p>
+          <a href="#" class="read-link">Read article</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="interviews">
+  <div class="wrap">
+    <span class="section-tag">CONVERSATIONS</span>
+    <h2 class="section-title">Interviews</h2>
+    <p style="color:var(--grey); max-width:60ch; margin-bottom:32px;">Conversations with academics, policymakers, professionals, community leaders, and other voices.</p>
+    <div class="portfolio-grid">
+      <div class="port-card">
+        <div class="port-photo">Add photo</div>
+        <div class="port-body">
+          <div class="port-meta">INTERVIEW</div>
+          <h3>Add your first interview here</h3>
+          <p>Subject · Organisation</p>
+          <a href="#" class="read-link">Interview →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="research" style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <span class="section-tag">RESEARCH</span>
+    <h2 class="section-title">Research Interests</h2>
+    <div class="research-tags">
+      <span class="research-tag">Media and Society</span>
+      <span class="research-tag">Journalism</span>
+      <span class="research-tag">Youth and Communication</span>
+      <span class="research-tag">Digital Media</span>
+      <span class="research-tag">Public Communication</span>
+      <span class="research-tag">Development Communication</span>
+      <span class="research-tag">Social Issues</span>
+    </div>
+    <p style="color:var(--grey); margin-top:28px; max-width:60ch;">Research papers, academic projects, reports, and presentations will be added here as they're completed.</p>
+  </div>
+</section>
+
+<div class="stats-band">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat"><h3>1+</h3><p>Years in Journalism</p></div>
+      <div class="stat"><h3>0</h3><p>Published Stories</p></div>
+      <div class="stat"><h3>0</h3><p>Interviews</p></div>
+      <div class="stat"><h3>0</h3><p>Media Projects</p></div>
+    </div>
+  </div>
+</div>
+
+<section id="orgs">
+  <div class="wrap" style="text-align:center;">
+    <span class="section-tag" style="display:block; margin-bottom:4px;">ORGANISATIONS &amp; COLLABORATIONS</span>
+    <div class="orgs-row">
+      <span class="org-name">Platform Times</span>
+      <span class="org-name">Unilorin Watch</span>
+      <span class="org-name">OC Legend Media</span>
+      <span class="org-name">Iblan Eyewear</span>
+      <span class="org-name">Deen Reach International Institute</span>
+    </div>
+  </div>
+</section>
+
+<section id="media" style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <span class="section-tag">MEDIA GALLERY</span>
+    <h2 class="section-title">Media</h2>
+    <div class="portfolio-grid">
+      <div class="port-card"><div class="port-photo">Add event photo</div></div>
+      <div class="port-card"><div class="port-photo">Add event photo</div></div>
+      <div class="port-card"><div class="port-photo">Add event photo</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <span class="section-tag">CONTACT</span>
+    <h2 class="section-title">Let's Connect</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>For journalism, research, media collaborations, interviews, and professional enquiries, reach out through any of the channels below.</p>
+        <ul class="contact-list">
+          <li><span>Email</span> hello@yourdomain.com</li>
+          <li><span>Phone</span> +234 XXX XXX XXXX</li>
+          <li><span>LinkedIn</span> linkedin.com/in/mujeebakindoyin</li>
+          <li><span>X</span> @mujeebakindoyin</li>
+        </ul>
+      </div>
+      <form onsubmit="return false;">
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="text" placeholder="Subject">
+        <textarea placeholder="Message" required></textarea>
+        <button class="submit" type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>Mujeeb A. Akindoyin</h3>
+        <p>Journalist | Researcher | Communicator</p>
+      </div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#journalism">Journalism</a>
+        <a href="#research">Research</a>
+        <a href="#media">Media</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#">X</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Mujeeb A. Akindoyin. All Rights Reserved.</span>
+      <span>Built as a living archive.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
